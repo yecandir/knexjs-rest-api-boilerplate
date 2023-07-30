@@ -7,7 +7,7 @@
 		"dev": "npx nodemon ./src/index.ts",
 		"start": "node ./dist/index.js",
 		"build": "npx tsc",
-		"test": "jest",
+		"test": "NODE_ENV=local jest",
 		"sqlite:create": "rm -rf src/knex/testDB.db; sqlite3 -batch src/knex/testDB.db < sqlite-db.sql",
 		"lint": "eslint .  --fix ",
 		"prepare": "husky install"

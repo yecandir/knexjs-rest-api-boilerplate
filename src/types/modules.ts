@@ -4,6 +4,10 @@ declare global {
 		interface ProcessEnv {
 			NODE_ENV: 'dev' | 'prod' | 'local';
 			PORT: string;
+			DB_HOST: string;
+			DB_USER: string;
+			DB_PASSWORD: string;
+			DB_DATABASE: string;
 		}
 	}
 }
