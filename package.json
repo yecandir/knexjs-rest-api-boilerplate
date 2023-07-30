@@ -9,7 +9,7 @@
 		"build": "npx tsc",
 		"test": "jest",
 		"sqlite:create": "rm -rf src/knex/testDB.db; sqlite3 -batch src/knex/testDB.db < sqlite-db.sql",
-		"lint": "eslint .",
+		"lint": "eslint .  --fix ",
 		"prepare": "husky install"
 	},
 	"author": "",
@@ -17,7 +17,9 @@
 	"devDependencies": {
 		"@types/cors": "^2.8.13",
 		"@types/express": "^4.17.17",
+		"@types/jest": "^29.5.3",
 		"@types/node": "^20.4.5",
+		"@types/supertest": "^2.0.12",
 		"@typescript-eslint/eslint-plugin": "^6.2.0",
 		"@typescript-eslint/parser": "^6.2.0",
 		"eslint": "^8.46.0",
@@ -25,6 +27,7 @@
 		"jest": "^29.6.2",
 		"nodemon": "^3.0.1",
 		"sqlite3": "^5.1.6",
+		"supertest": "^6.3.3",
 		"ts-jest": "^29.1.1",
 		"ts-node": "^10.9.1",
 		"typescript": "^5.1.6"

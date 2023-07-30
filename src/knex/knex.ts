@@ -1,4 +1,9 @@
 import knex from 'knex';
 import knexConfig from './knexfile';
+import { config } from 'dotenv';
+config();
 
-export default knex(knexConfig[process.env.NODE_ENV ?? 'local']);
+const _config =
+	knexConfig[process.env.NODE_ENV] ?? knexConfig['local'];
+
+export default knex(_config);
