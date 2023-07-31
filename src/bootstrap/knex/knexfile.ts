@@ -18,7 +18,7 @@ const defaults: Knex.Config = {
 const local: Knex.Config = {
 	client: 'sqlite3',
 	connection: {
-		filename: path.resolve(__dirname, './testDB.db'),
+		filename: path.resolve(__dirname, '../../../sqlite.db'),
 	},
 	useNullAsDefault: true,
 };

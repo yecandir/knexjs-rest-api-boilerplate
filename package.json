@@ -8,7 +8,7 @@
 		"start": "node ./dist/index.js",
 		"build": "npx tsc",
 		"test": "NODE_ENV=local jest",
-		"sqlite:create": "rm -rf src/bootstrap/knex/testDB.db; sqlite3 -batch src/bootstrap/knex/testDB.db < sqlite-db.sql",
+		"sqlite:create": "rm -rf sqlite.db; sqlite3 -batch sqlite.db < sqlite-db.sql",
 		"lint": "eslint .  --fix ",
 		"prepare": "husky install"
 	},
