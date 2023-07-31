@@ -1,16 +1,14 @@
-import { config } from 'dotenv';
 import express from 'express';
-import cors from 'cors';
 import helmet from 'helmet';
 import { loadControllers, scopePerRequest } from 'awilix-express';
 import { container } from './bootstrap/container';
-config();
+import { customCors } from './utils/config';
 
 const app = express();
 
 app.use(scopePerRequest(container));
 app.use(express.json({ limit: '5MB' }));
-app.use(cors());
+app.use(customCors);
 app.use(helmet());
 
 app.use(loadControllers('controllers/*.ts', { cwd: __dirname }));
