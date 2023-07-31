@@ -1,3 +1,5 @@
+import { AwilixContainer } from 'awilix';
+
 declare global {
 	// eslint-disable-next-line @typescript-eslint/no-namespace
 	namespace NodeJS {
@@ -8,6 +10,13 @@ declare global {
 			DB_USER: string;
 			DB_PASSWORD: string;
 			DB_DATABASE: string;
+		}
+	}
+
+	// eslint-disable-next-line @typescript-eslint/no-namespace
+	namespace Express {
+		interface Request {
+			container: AwilixContainer;
 		}
 	}
 }

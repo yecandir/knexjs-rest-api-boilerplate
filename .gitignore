@@ -1,4 +1,4 @@
 node_modules
 dist
-src/knex/data/testDB.db
+src/bootstrap/knex/testDB.db
 .env
