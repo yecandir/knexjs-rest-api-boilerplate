@@ -17,7 +17,7 @@ app.use(loadControllers('controllers/*.ts', { cwd: __dirname }));
 app.use(loadControllers('controllers/*.js', { cwd: __dirname }));
 
 app.get('/', (req, res) => {
-	res.send('App is running. Health check endpoint');
+	res.send('App is running.');
 });
 
 export { app };

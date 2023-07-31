@@ -3,7 +3,6 @@ BEGIN TRANSACTION;
 COMMIT;
 
 -- CREATE TABLES
-
 CREATE TABLE users (
     id serial primary key,
     name text
@@ -15,7 +14,6 @@ CREATE TABLE posts (
 );
 
 -- SEED DB
-
 insert into users(name)
 values ('test1'), ('test2'), ('test3'), ('test4');
 
