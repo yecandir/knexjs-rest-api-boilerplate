@@ -1,7 +1,5 @@
 import cors from 'cors';
 
-export const available_table_names = ['posts', 'users'];
-
 export const whitelistedOrigions = ['https://www.example.com'];
 
 export const customCors = cors({
