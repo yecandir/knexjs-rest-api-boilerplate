@@ -18,6 +18,7 @@ interface SwaggerRouteParameters {
 		type: string;
 	};
 	in: SwaggerRouteParamIn;
+	required: boolean;
 }
 
 const genarateParams = (
@@ -35,6 +36,7 @@ const genarateParams = (
 				schema: {
 					type: json?.properties[pKey].type,
 				},
+				required: json.required.includes(pKey),
 			});
 		});
 	}
