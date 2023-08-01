@@ -17,4 +17,5 @@ Uses sqlite3 for local development:
 
    - utils/config file need update for allowed endpoints
 
-   - will continue...
+3. Set the routes using
+   src/server/routes folder

@@ -1,9 +1,9 @@
 import express from 'express';
 import helmet from 'helmet';
-import { customCors } from '../utils/config';
-import routeConfigs from './routes';
-import setupSwagger from '../utils/swagger';
-import requestValidations from '../middlewares/validations';
+import { customCors } from './utils/config';
+import routeConfigs from './server/routes';
+import setupSwagger from './utils/swagger';
+import { container } from './bootstrap/container';
 
 const app = express();
 
@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 });
 
 setupSwagger(app);
-app.use(requestValidations);
+app.use(container.resolve('validationMiddleware'));
 
 // register routes
 routeConfigs.map((route) => {
