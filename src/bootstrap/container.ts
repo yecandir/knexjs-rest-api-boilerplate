@@ -1,11 +1,13 @@
 import { Lifetime, asValue, createContainer } from 'awilix';
 import knex from './knex/knex';
 import { Knex } from 'knex';
-import UserService from '../services/user.service';
+import UsersService from '../services/users.service';
+import UsersController from '../server/controllers/users.controller';
 
 export interface ContainerDependencies {
 	knex: Knex;
-	userService: UserService;
+	usersService: UsersService;
+	usersController: UsersController;
 }
 
 const container = createContainer<ContainerDependencies>();
@@ -19,5 +21,16 @@ container.loadModules(['../services/*.ts', '../services/*.js'], {
 		lifetime: Lifetime.SCOPED,
 	},
 });
+
+container.loadModules(
+	['../server/controllers/*.ts', '../server/controllers/*.ts'],
+	{
+		cwd: __dirname,
+		formatName: 'camelCase',
+		resolverOptions: {
+			lifetime: Lifetime.SCOPED,
+		},
+	}
+);
 
 export { container };

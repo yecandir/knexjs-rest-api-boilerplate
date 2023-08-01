@@ -1,6 +1,6 @@
 import { Knex } from 'knex';
 
-export default class UserService {
+export default class UsersService {
 	private knex: Knex;
 	constructor(deps: { knex: Knex }) {
 		this.knex = deps.knex;
