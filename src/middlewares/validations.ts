@@ -1,9 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import routeConfigs from '../server/routes';
-import { RouteSettings } from '../types';
+import { RouteSettings, validatorKey } from '../types';
 import { Key, pathToRegexp } from 'path-to-regexp';
-
-export type validatorKey = 'params' | 'query' | 'body' | 'headers';
 
 export default async function requestValidations(
 	req: Request,
@@ -18,7 +16,7 @@ export default async function requestValidations(
 	}
 
 	/**
-	 * 	Right now, not able to get req.params
+	 * Right now, not able to get req.params
 	 * there is some configuration error going on
 	 * but no problem implemented a work-around here
 	 */
@@ -63,8 +61,6 @@ function isRouteExist(req: Request): RouteSettings | undefined {
 		const pattern = pathToRegexp(route.path, keys);
 		const match = pattern.exec(requestPath);
 		if (match && route.method === method) {
-			console.log(keys);
-			console.log(match);
 			return { ...route };
 		}
 	}

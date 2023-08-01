@@ -67,7 +67,7 @@ routeConfigs.map((route) => {
 
 	paths[convertedPath] = {
 		[`${route.method}`]: {
-			summary: `${route.method.toUpperCase()} ${convertedPath}`,
+			summary: `${route.method.toUpperCase()} ${routePath}`,
 			definition: `${route.config.description}`,
 			responses: {},
 			parameters: parameters,
