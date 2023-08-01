@@ -1,16 +1,18 @@
-import { RouteConfigInterface } from './types';
+import { Response, Request } from 'express';
 import { container } from '../../bootstrap/container';
+import { RouteSettings } from '../../types';
+import userRouteValidations from '../validations/users';
 
-const routeConfig: RouteConfigInterface[] = [
+const routeConfig: RouteSettings[] = [
 	{
-		path: '/users/test',
+		path: '/users/test/:id',
 		method: 'get',
 		config: {
 			tags: ['api'],
 			description: 'test endpoint',
+			validation: userRouteValidations.test,
 		},
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		handler: async (req: any, res: any) => {
+		handler: async (req: Request, res: Response) => {
 			const usersController = container.resolve('usersController');
 			await usersController.getUser(req, res);
 		},
