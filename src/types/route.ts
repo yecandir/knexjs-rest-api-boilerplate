@@ -26,4 +26,4 @@ export interface RouteSettings {
 	handler: RequestHandler;
 }
 
-export type HttpMethod = 'get' | 'post';
+export type HttpMethod = 'get' | 'post' | 'put' | 'delete';

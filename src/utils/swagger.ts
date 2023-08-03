@@ -65,13 +65,15 @@ routeConfigs.map((route) => {
 		...genarateParams(request?.body, 'body')
 	);
 
-	paths[convertedPath] = {
-		[`${route.method}`]: {
-			summary: `${route.method.toUpperCase()} ${routePath}`,
-			definition: `${route.config.description}`,
-			responses: {},
-			parameters: parameters,
-		},
+	if (!paths[convertedPath]) {
+		paths[convertedPath] = {};
+	}
+
+	paths[convertedPath][`${route.method}`] = {
+		summary: `${route.method.toUpperCase()} ${routePath}`,
+		definition: `${route.config.description}`,
+		responses: {},
+		parameters: parameters,
 	};
 });
 

@@ -17,6 +17,20 @@ const routeConfig: RouteSettings[] = [
 			await usersController.getUser(req, res);
 		},
 	},
+
+	{
+		path: '/users/test/:id',
+		method: 'put',
+		config: {
+			tags: ['api'],
+			description: 'test endpoint',
+			validation: userRouteValidations.test,
+		},
+		handler: async (req: Request, res: Response) => {
+			const usersController = container.resolve('usersController');
+			await usersController.getUser(req, res);
+		},
+	},
 ];
 
 export default routeConfig;
